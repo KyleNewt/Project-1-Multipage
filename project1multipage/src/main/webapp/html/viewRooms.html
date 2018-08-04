@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kyle Newton">
+	<meta name="viewport" content="width=device-width">
+	<title>Insert title here</title>
+	<link type="text/css" rel="stylesheet" href="../css/style.css">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../js/CheckRoomAvailableJS.js"></script>
+</head>
+
+<body>
+	<div id="viewRooms">
+	<div id="topMenu" class="topNav">
+		<a id="topNav-frontPage" href="../index.html">Front Page</a>
+		<a id="topNav-contactUs" href="contactUs.html">Contact Us</a>
+		<a id="topNav-about" href="aboutUs.html">About</a>
+		<a id="topNav-news" href="news.html">News</a>
+		</div>
+	<div id="sideMenu" class="sideMenu">
+		<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a>
+		<br>
+		<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a>
+		<br>
+		<a class="button" href="submitTicket.html" id="sideNav-submitTicket">Submit Ticket</a>
+		<br>
+		<a class="button" href="myInbox.html" id="sideNav-myInbox">My Inbox</a>
+		<br>
+	</div>
+		<h2>What day will you be visiting us?</h2>
+		<form id="roomCheckForm" action="../CheckBookingDate" method="get">
+
+			<p>First day of Visit: <p><br>
+			<input type="date" id="DayOfVisit" name="DayOfVisit">
+			<br>
+			
+			<p>Day of Departure: <p><br>
+			<input type="date" id="DayOfDeparture" name="DayOfDeparture">
+			<br>
+			
+			<input type="submit" onSubmit="CheckRoomAvailableJS()">
+			<!-- Send this form to JS, which calls CheckBookingDateServlet, which calls BookingsDao
+			which sends back a set of available rooms.  Then while set.hasNext() to construct
+			dropdown menu.  Then use DOM to replace text -->
+		</form>
+
+		<div id="getAvailable">
+			<!-- load the available rooms from the database here using JS-->
+		</div>
+	</div>
+</body>
+
+</html>
