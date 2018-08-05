@@ -126,10 +126,23 @@ public class BookingsDao{
 		return bookingsList;
 	}
 
-	public static void BookRoom(String dayOfVisit, String dayOfDeparture, String roomId) {
+	public static void BookRoom(String dayOfVisit, String dayOfDeparture, int roomId, String email) {
 		// From BookingsServlet, take dayOfVisit, dayOfDeparture, email and roomId
 		// Store in Bookings table
 		
+		PreparedStatement ps = null;
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "INSERT INTO Bookings(room_id, booking_start_date, booking_end_date, email, total_price) VALUES (?,'"+dayOfVisit+"','"+dayOfDeparture+"','"+email+"',100)";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, roomId);
+			ResultSet rs = ps.executeQuery();
+			
+			rs.close();
+			ps.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 }
 

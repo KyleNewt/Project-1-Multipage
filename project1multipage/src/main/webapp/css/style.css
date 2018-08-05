@@ -88,6 +88,10 @@ body {
     display: block;
 }
 
+select:blank{
+	display:none;
+}
+
 #submitTicket{
     width: 50%;
     clear: both;

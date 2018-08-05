@@ -7,8 +7,6 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Insert title here</title>
 	<link type="text/css" rel="stylesheet" href="../css/style.css">
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="../js/CheckRoomAvailableJS.js"></script>
 </head>
 
 <body>
@@ -30,26 +28,30 @@
 		<br>
 	</div>
 		<h2>What day will you be visiting us?</h2>
-		<form id="roomCheckForm" action="../CheckBookingDate" method="get">
+		<form id="roomCheckForm">
 
-			<p>First day of Visit: <p><br>
-			<input type="date" id="DayOfVisit" name="DayOfVisit">
-			<br>
+			<p>First day of Visit: <p>
+			<input type="date" id="dayOfVisit" name="dayOfVisit">
 			
-			<p>Day of Departure: <p><br>
-			<input type="date" id="DayOfDeparture" name="DayOfDeparture">
-			<br>
-			
-			<input type="submit" onSubmit="CheckRoomAvailableJS()">
+			<p>Day of Departure: <p>
+			<input type="date" id="dayOfDeparture" name="dayOfDeparture">
+			</p>
+			<button type="button" name="submit" id="checkRoomBookingsButton">Submit</button>
+			</form>
 			<!-- Send this form to JS, which calls CheckBookingDateServlet, which calls BookingsDao
 			which sends back a set of available rooms.  Then while set.hasNext() to construct
 			dropdown menu.  Then use DOM to replace text -->
-		</form>
-
+			
 		<div id="getAvailable">
 			<!-- load the available rooms from the database here using JS-->
 		</div>
+		<select id="roomSelectionDropdown" hidden="">
+		</select>
 	</div>
+	<div id="errorMessage"></div>
 </body>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/CheckRoomAvailableJS.js"></script>
 
 </html>

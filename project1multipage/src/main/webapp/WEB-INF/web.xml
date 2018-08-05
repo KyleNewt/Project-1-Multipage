@@ -32,43 +32,46 @@
 		<servlet-class>com.revature.controller.CheckBookingDateServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
+		<servlet-name>BookingsServlet</servlet-name>
+		<servlet-class>com.revature.controller.BookingsServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<display-name>CreateIssueServlet</display-name>
 		<servlet-name>CreateIssueServlet</servlet-name>
 		<servlet-class>com.revature.controller.CreateIssueServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
 		<display-name>ResolveIssueServlet</display-name>
 		<servlet-name>ResolveIssueServlet</servlet-name>
 		<servlet-class>com.revature.controller.ResolveIssueServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
 		<display-name>RetrieveMyIssuesServlet</display-name>
 		<servlet-name>RetrieveMyIssuesServlet</servlet-name>
 		<servlet-class>com.revature.controller.RetrieveMyIssuesServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
 		<display-name>RetrieceUnresolvedIssuesServlet</display-name>
 		<servlet-name>RetrieceUnresolvedIssuesServlet</servlet-name>
-		<servlet-class>com.revature.controller.RetrieceUnresolvedIssuesServlet</servlet-class>
+		<servlet-class>com.revature.controller.RetrieveUnresolvedIssuesServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
 		<display-name>RetrieveUnresolvedIssuesServlet</display-name>
 		<servlet-name>RetrieveUnresolvedIssuesServlet</servlet-name>
 		<servlet-class>com.revature.controller.RetrieveUnresolvedIssuesServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<display-name>VerifyEmail</display-name>
+		<servlet-name>VerifyEmail</servlet-name>
+		<servlet-class>com.revature.controller.VerifyEmailServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CheckBookingDate</servlet-name>
 		<url-pattern>/CheckBookingDate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BookingsServlet</servlet-name>
+		<url-pattern>/BookingsServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CreateIssueServlet</servlet-name>
@@ -89,6 +92,10 @@
 	<servlet-mapping>
 		<servlet-name>RetrieveUnresolvedIssuesServlet</servlet-name>
 		<url-pattern>/RetrieveUnresolvedIssuesServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>VerifyEmail</servlet-name>
+		<url-pattern>/VerifyEmail</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

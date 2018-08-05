@@ -52,7 +52,28 @@ public class UserAccountsDao {
 			ResultSet rs = ps.executeQuery();
 			
 			userExists = rs.next();
-			System.out.println(rs.next() + " check");
+			ps.close();
+			rs.close();
+			
+		} catch (SQLException | IOException ex) {
+			ex.printStackTrace();
+		}
+		return userExists;
+	}
+	
+	public static boolean VerifyEmail(String email) {
+		boolean userExists = false;
+		
+		PreparedStatement ps = null;
+
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "SELECT * FROM User_Accounts WHERE email = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			userExists = rs.next();
 			ps.close();
 			rs.close();
 			

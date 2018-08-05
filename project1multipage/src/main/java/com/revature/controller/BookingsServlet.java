@@ -15,19 +15,18 @@ public class BookingsServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		System.out.println("Successfully fired up BookingsServlet.get");
-		String DayOfVisit = req.getParameter("DayOfVisit");
-		String DayOfDeparture = req.getParameter("DayOfDeparture");
-		String RoomId = req.getParameter("room_id");
-		System.out.println(DayOfVisit + " " + DayOfDeparture + " " + RoomId);
-		BookingsDao.BookRoom(DayOfVisit, DayOfDeparture, RoomId);
-		
-		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		System.out.println("Successfully fired up CheckBookingDateServlet.post");
+		String DayOfVisit = req.getParameter("dayOfVisit");
+		String DayOfDeparture = req.getParameter("dayOfDeparture");
+		int RoomId = Integer.parseInt(req.getParameter("roomId"));
+		String emailVerification = req.getParameter("emailVerification");
+		System.out.println(DayOfVisit + " " + DayOfDeparture + " " + RoomId + " " + emailVerification);
+		//BookingsDao.BookRoom(DayOfVisit, DayOfDeparture, RoomId, emailVerification);
 		
 	}
 }
