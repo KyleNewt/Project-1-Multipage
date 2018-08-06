@@ -5,7 +5,6 @@ function CheckRoomAvailableJS(event) {
 
 	dayOfVisit = document.getElementById("dayOfVisit").value;
 	dayOfDeparture = document.getElementById("dayOfDeparture").value;
-	checkIfAlreadyRan = document.getElementById("viewRoomsP");
 
 	if (dayOfVisit == "") {
 		document.getElementById("getAvailable").innerHTML = "Please insert a visit date.";
@@ -15,35 +14,25 @@ function CheckRoomAvailableJS(event) {
 
 			if (this.readyState == 4) {
 				if (this.status == 200) {
+					var mySelect = document.getElementById("roomSelectionDropdown");
+					while (mySelect.firstChild) {
+					    mySelect.removeChild(mySelect.firstChild);
+					}
 					myData = xhr.responseText;
 					myData = myData.replace(/[\[\]']+/g, '');
 					myData = myData.replace(/\s/g, '');
 					myData = myData.split(',');
 
-					var viewRoomsP = document.createElement("p");
-					viewRoomsP.innerHTML = "Choose the room you would like.";
-					document.body.appendChild(viewRoomsP);
+					viewRoomsP.innerHTML = "Choose the room you would like.";					
 
 					myData.forEach(function(element) {
 						var option = document.createElement("option");
 						option.text = (element);
 						roomSelectionDropdown.append(option);
 					});
-
 					roomSelectionDropdown.removeAttribute("hidden");
-
-					var confirmEmail = document.createElement("Input");
-					confirmEmail.setAttribute("type", "text");
-					confirmEmail.placeholder = "Confirm your Email";
-					confirmEmail.name = "confirmEmail";
-					confirmEmail.id = "confirmEmail";
-					document.body.appendChild(confirmEmail);
-
-					var myBookingsSubmitButton = document
-							.createElement("Button");
-					myBookingsSubmitButton.innerHTML = "Send Booking Request";
-					myBookingsSubmitButton.id = "submitBookingButton";
-					document.body.appendChild(myBookingsSubmitButton);
+					confirmEmail.removeAttribute("hidden");
+					submitBookingButton.removeAttribute("hidden");
 
 				} else {
 					console.log("error");
@@ -72,10 +61,17 @@ function SubmitRoomChoiceJS(event) {
 
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
-
+		
 		if (this.readyState == 4) {
 			if (this.status == 200) {
-
+				redirect = xhr.responseText;
+				response = redirect.trim();
+				console.log(redirect);
+				if(response == "Verification Failed"){
+					errorMessage.innerHTML = "Email address not found in database";
+				} else {
+					location.href='userDashboard.html';
+				}
 			}
 		}
 	}
@@ -83,19 +79,10 @@ function SubmitRoomChoiceJS(event) {
 	 + "&dayOfDeparture=" + encodeURIComponent(dayOfDeparture)
 	 + "&roomId=" + encodeURIComponent(roomSelection)
 	 + "&emailVerification=" + encodeURIComponent(emailVerification);
-	 xhr.open("POST", "../VerifyEmail", true);
+	 xhr.open("POST", "../BookingsServlet", true);
 	 xhr.setRequestHeader("Content-Type",
 	 "application/x-www-form-urlencoded");
-	 xhr.send("emailVerification="+encodeURIComponent(emailVerification));
-	 emailVerified = xhr.responseText;
-	 console.log(emailVerified);
-	 if (emailVerified.localeCompare("True")){
-		 xhr.open("POST", "../CheckBookingDate", true);
-		 xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		 xhr.send(data);
-	 } else{
-		 document.getElementById("errorMessage").innerHTML="Email not found.";
-	 }
+	 xhr.send(data);
 }
 
 document.addEventListener('click', function(myBookingsSubmitButton){
