@@ -31,7 +31,6 @@ function CheckRoomAvailableJS(event) {
 						roomSelectionDropdown.append(option);
 					});
 					roomSelectionDropdown.removeAttribute("hidden");
-					confirmEmail.removeAttribute("hidden");
 					submitBookingButton.removeAttribute("hidden");
 
 				} else {
@@ -54,31 +53,26 @@ function SubmitRoomChoiceJS(event) {
 	roomSelection = document.getElementById('roomSelectionDropdown').value;
 	dayOfVisit = document.getElementById("dayOfVisit").value;
 	dayOfDeparture = document.getElementById("dayOfDeparture").value;
-	emailVerification = document.getElementById('confirmEmail').value;
-
-	console.log(roomSelection + dayOfDeparture + dayOfVisit
-					+ emailVerification);
+	
+	console.log(roomSelection + dayOfDeparture + dayOfVisit);
 
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		
 		if (this.readyState == 4) {
 			if (this.status == 200) {
-				redirect = xhr.responseText;
-				response = redirect.trim();
-				console.log(redirect);
+				response = xhr.responseText.trim();
 				if(response == "Verification Failed"){
 					errorMessage.innerHTML = "Email address not found in database";
 				} else {
-					location.href='userDashboard.html';
+					location.href='myAccount.html';
 				}
 			}
 		}
 	}
 	 var data = "dayOfVisit=" + encodeURIComponent(dayOfVisit)
 	 + "&dayOfDeparture=" + encodeURIComponent(dayOfDeparture)
-	 + "&roomId=" + encodeURIComponent(roomSelection)
-	 + "&emailVerification=" + encodeURIComponent(emailVerification);
+	 + "&roomId=" + encodeURIComponent(roomSelection);
 	 xhr.open("POST", "../BookingsServlet", true);
 	 xhr.setRequestHeader("Content-Type",
 	 "application/x-www-form-urlencoded");

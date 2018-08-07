@@ -6,17 +6,19 @@
 	<title>My Inbox</title>
 	<link type="text/css" rel="stylesheet" href="../css/style.css">
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../js/VerifyLogin.js"></script>
+	<script>VerifyLogin();</script>
 </head>
 
-<body>
+<body onload="RetrieveMyIssues()">
 	<div id="topMenu" class="topNav">
-		<a id="topNav-frontPage" href="../index.htmlw">Front Page</a>
+		<a id="topNav-frontPage" href="../index.html">Front Page</a>
 		<a id="topNav-contactUs" href="contactUs.html">Contact Us</a>
 		<a id="topNav-about" href="aboutUs.html">About</a>
 		<a id="topNav-news" href="news.html">News</a>
 		</div>
 	<div id="sideMenu" class="sideMenu">
-		<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a>
+		<a class="button" href="myAccount.html" id="sideNav-myAccount">My Account</a>
 		<br>
 		<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a>
 		<br>
@@ -33,7 +35,7 @@
 					<td>Response</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="myIssuesTable">
 				<!--
 						Loop through issue table where id=customer_id
 						generate 1 table row per issue
@@ -45,5 +47,5 @@
 		</table>
 	</div>
 </body>
-
+<script src="../js/RetrieveMyIssues.js"></script>
 </html>

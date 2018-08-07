@@ -6,9 +6,11 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/style.css">
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/VerifyLogin.js"></script>
+<script>VerifyLogin();</script>
 </head>
 
-<body>
+<body onLoad="RetrieveMyBookings()">
 	<div id="topMenu" class="topNav">
 		<a id="topNav-frontPage" href="../index.html">Front Page</a>
 		<a id="topNav-contactUs" href="contactUs.html">Contact Us</a>
@@ -16,7 +18,7 @@
 		<a id="topNav-news" href="news.html">News</a>
 		</div>
 	<div id="sideMenu" class="sideMenu">
-		<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a>
+		<a class="button" href="myAccount.html" id="sideNav-myAccount">My Account</a>
 		<br>
 		<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a>
 		<br>
@@ -26,24 +28,25 @@
 		<br>
 	</div>
 	<div id="myAccount">
-		<h1>My Account text</h1>
+		<h1>Your Current Bookings</h1>
+		<table width="70%" border="1">
+			<thead>
+				<tr>
+					<td>Room Number</td>
+					<td>Arrival Date</td>
+					<td>Departure Date</td>
+					<td>Price</td>
+					<td>Approved?</td>
+				</tr>
+			</thead>
+			<tbody id="myBookingsTable">
 
-		<!-- Change action to servlet name -->
-		<form action="login" method="post">
-			<input type="text" name="email" placeholder="E-mail Address:"><br>
-			<input type="password" name="password" placeholder="Password: "><br>
-			<input type="submit" value="Submit">
-		</form>
-
-		<p>
-			New User? <a href="#"
-				onCLick="myWindow=window.open('html/createAccount.html', 'myWindow', width=600, height=300); return false;">Create
-				Account</a>
-		</p>
-
-		<p id="loggedIn"></p>
+			</tbody>
+		</table><br><br>
+	
+	<button id="logoutButton">Logout</button>
 	</div>
 </body>
-
-
+<script src="../js/RetrieveMyBookings.js"></script>
+<script src="../js/Logout.js"></script>
 </html>

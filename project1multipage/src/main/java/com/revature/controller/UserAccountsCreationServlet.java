@@ -20,15 +20,12 @@ public class UserAccountsCreationServlet extends HttpServlet {
 		String emailConfirmation = req.getParameter("emailConfirmation");
 		String password = req.getParameter("password");
 		String passwordConfirmation = req.getParameter("passwordConfirmation");
-		System.out.println(email + emailConfirmation + password + passwordConfirmation);
 
 		if (email != emailConfirmation || password != passwordConfirmation) {
-			System.out.println("Mismatched info");
 			resp.sendRedirect("html/createAccount.html");
 		} else {
 			// Check if user already exists
 			if (UserAccountsDao.CheckIfUserAccountExists(email)) {
-				System.out.println("Email already in use");
 				resp.sendRedirect("index.html");
 			} else {
 				UserAccountsDao.AddNewUser(email, password);
@@ -46,15 +43,12 @@ public class UserAccountsCreationServlet extends HttpServlet {
 		String emailConfirmation = req.getParameter("emailConfirmation");
 		String password = req.getParameter("password");
 		String passwordConfirmation = req.getParameter("passwordConfirmation");
-		System.out.println(email + emailConfirmation + password + passwordConfirmation);
 
 		if (!email.equals(emailConfirmation) || !password.equals(passwordConfirmation)) {
-			System.out.println("Mismatched info");
 			resp.sendRedirect("html/createAccount.html");
 		} else {
 			// Check if user already exists
 			if (UserAccountsDao.CheckIfUserAccountExists(email)) {
-				System.out.println("Email already in use");
 				resp.sendRedirect("index.html");
 			} else {
 				UserAccountsDao.AddNewUser(email, password);

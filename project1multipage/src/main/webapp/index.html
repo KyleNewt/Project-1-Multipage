@@ -2,23 +2,29 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="author" content="Kyle Newton">
-	<meta name="viewport" content="width=device-width">
-	<link type="text/css" rel="stylesheet" href="css/style.css">
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<title>Project 1</title>
+<meta charset="utf-8">
+<meta name="author" content="Kyle Newton">
+<meta name="viewport" content="width=device-width">
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>Project 1</title>
 </head>
 
 <body>
-			<div id="topMenu" class="topNav">
-				<a id="topNav-frontPage" href="index.html">Front Page</a>
-				<a id="topNav-contactUs" href="html/contactUs.html">Contact Us</a>
-				<a id="topNav-about" href="html/aboutUs.html">About</a>
-				<a id="topNav-news" href="html/news.html">News</a>
-			</div>
-		<div id="myAccount">
-		<h1>My Account text</h1>
+	<div id="topMenu" class="topNav">
+		<a id="topNav-frontPage" href="index.html">Front Page</a> 
+		<a id="topNav-contactUs" href="html/contactUs.html">Contact Us</a> 
+			<a id="topNav-about" href="html/aboutUs.html">About</a> 
+			<a id="topNav-news" href="html/news.html">News</a>
+	</div>
+	<div id="sideMenu" class="sideMenu">
+		<a class="button" href="html/myAccount.html" id="sideNav-myAccount">My Account</a><br>
+		<a class="button" href="html/viewRooms.html" id="sideNav-viewRooms">View Rooms</a><br>
+		<a class="button" href="html/submitTicket.html" id="sideNav-submitTicket">Submit Ticket</a><br>
+		<a class="button" href="html/myInbox.html" id="sideNav-myInbox">My Inbox</a><br>
+	</div>
+	<div id="myAccount">
+		<h1>Motel 50-50</h1>
 
 		<form action="login" method="post">
 			<input type="text" name="email" placeholder="E-mail Address:"><br>
@@ -31,7 +37,7 @@
 		</p>
 
 		<p id="loggedIn"></p>
-		</div>
+	</div>
 </body>
 
 </html>

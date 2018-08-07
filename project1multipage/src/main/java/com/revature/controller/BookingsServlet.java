@@ -24,7 +24,7 @@ public class BookingsServlet extends HttpServlet{
 		String DayOfVisit = req.getParameter("dayOfVisit");
 		String DayOfDeparture = req.getParameter("dayOfDeparture");
 		int RoomId = Integer.parseInt(req.getParameter("roomId"));
-		String emailVerification = req.getParameter("emailVerification");
+		String emailVerification = (String) req.getSession().getAttribute("email");
 		if (UserAccountsDao.VerifyEmail(emailVerification)) {
 			BookingsDao.BookRoom(DayOfVisit, DayOfDeparture, RoomId, emailVerification);
 			return;

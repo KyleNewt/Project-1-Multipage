@@ -8,30 +8,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.beans.BookingsResponse;
 import com.revature.beans.IssuesClientResponse;
+import com.revature.dao.BookingsDao;
 import com.revature.dao.IssuesDao;
 import com.revature.dao.UserAccountsDao;
 
-public class RetrieveMyIssuesServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	@Override
+/**
+ * Servlet implementation class RetrieveMyBookingsServlet
+ */
+public class RetrieveMyBookingsServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Successfully fired up RetrieveMyIssuesServlet.post");
+		System.out.println("Successfully fired up RetrieveMyBookingsServlet.post");
 		String email= (String) req.getSession().getAttribute("email");
 		if (UserAccountsDao.VerifyEmail(email)) {
-			List<IssuesClientResponse> myIssues = IssuesDao.RetrieveMyIssues(email);
-			resp.getWriter().write(myIssues.toString());
+			List<BookingsResponse> myBookings = BookingsDao.RetrieveMyBookings(email);
+			resp.getWriter().write(myBookings.toString());
 			return;
 		} else {
 			resp.getWriter().write("Verification Failed");
 			return;
 		}
 	}
+
 }

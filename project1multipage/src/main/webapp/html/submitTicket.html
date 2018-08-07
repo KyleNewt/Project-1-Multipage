@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width">
 	<link type="text/css" rel="stylesheet" href="../css/style.css">
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../js/VerifyLogin.js"></script>
+	<script>VerifyLogin();</script>
 	<title>Submit Ticket</title>
 </head>
 
@@ -18,7 +20,7 @@
 				<a id="topNav-news" href="news.html">News</a>
 			</div>
 			<div id="sideMenu" class="sideMenu">
-				<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a><br>
+				<a class="button" href="myAccount.html" id="sideNav-myAccount">My Account</a><br>
 				<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a><br>
 				<a class="button" href="submitTicket.html" id="sideNav-submitTicket">Submit Ticket</a><br>
 				<a class="button" href="myInbox.html" id="sideNav-myInbox">My Inbox</a><br>
@@ -27,17 +29,16 @@
 		<h1>Have a problem? Please tell us!</h1>
 
 		<form>
-			<input type="text" name="email" placeholder="E-mail Address">
+			<input type="text" id="issueTitle" name="issueTitle" placeholder="Title">
 			<br>
 			<br>
-			<input type="text" name="issueTitle" placeholder="Title">
+			<textarea id="issueText" placeholder="What is your issue?"></textarea>
 			<br>
-			<br>
-			<textarea placeholder="What is your issue?"></textarea>
-			<br>
-			<input type="submit">
 		</form>
+		<button id="submitIssueButton">Submit Issue</button>
+		<div id="errorCheck"></div>
 	</div>
 </body>
-
+<script src="../js/VerifyLogin.js"></script>
+<script src="../js/Issues.js"></script>
 </html>

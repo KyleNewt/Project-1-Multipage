@@ -9,21 +9,37 @@
 
 <body>
 	<div id="topMenu" class="topNav">
-		<a id="topNav-frontPage" href="../index.html">Front Page</a>
-		<a id="topNav-contactUs" href="contactUs.html">Contact Us</a>
-		<a id="topNav-about" href="aboutUs.html">About</a>
-		<a id="topNav-news" href="news.html">News</a>
+		<a id="" href="#">Edit Contact Us Page</a>
+		<a id="" href="#">Edit About Page</a>
+		<a id="" href="#">Edit News</a>
 		</div>
 	<div id="sideMenu" class="sideMenu">
-		<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a>
+		<a class="button" href="managerDashboard.html" id="sideNav-myAccount">Dashboard</a>
 		<br>
-		<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a>
+		<a class="button" href="#" id="#">Current Bookings</a>
 		<br>
-		<a class="button" href="submitTicket.html" id="sideNav-submitTicket">Submit Ticket</a>
+		<a class="button" href="#" id="#">View Tickets</a>
 		<br>
-		<a class="button" href="myInbox.html" id="sideNav-myInbox">My Inbox</a>
+		<a class="button" href="#" id="#">Unresolved Tickets</a>
 		<br>
 	</div>
-<h1>I am a manager</h1>
+	<h1>Unresolved Bookings</h1>
+		<table width="70%" border="1">
+			<thead>
+				<tr>
+					<td>Email</td>
+					<td>Room Number</td>
+					<td>Arrival Date</td>
+					<td>Departure Date</td>
+					<td>Price</td>
+					<td>Approved?</td>
+				</tr>
+			</thead>
+			<tbody id="managerBookingsTable">
+
+			</tbody>
+		</table><br><br>
+	<button id="logoutButton">Logout</button>
 </body>
+	<script src="../js/Logout.js"></script>
 </html>

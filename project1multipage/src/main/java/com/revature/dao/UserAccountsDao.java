@@ -70,7 +70,7 @@ public class UserAccountsDao {
 			String sql = "SELECT * FROM User_Accounts WHERE email = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
-			
+
 			ResultSet rs = ps.executeQuery();
 			
 			userExists = rs.next();

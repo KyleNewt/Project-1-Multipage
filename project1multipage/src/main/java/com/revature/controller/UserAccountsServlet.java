@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.dao.UserAccountsDao;
 
@@ -27,10 +28,14 @@ public class UserAccountsServlet extends HttpServlet {
 		String password = req.getParameter("password");
 
 		if (UserAccountsDao.VerifyLogin(email, password)) {
+			HttpSession session = req.getSession();
+			session.setAttribute("email", email);
 			if (UserAccountsDao.CheckManager(email, password)) {
+				session.setAttribute("isManager", true);
 				resp.sendRedirect("html/managerDashboard.html");
 			} else {
-				resp.sendRedirect("html/userDashboard.html");
+				session.setAttribute("isManager", false);
+				resp.sendRedirect("html/myAccount.html");
 			}
 		} else {
 			resp.sendRedirect("index.html");

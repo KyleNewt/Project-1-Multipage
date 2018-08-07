@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Insert title here</title>
 	<link type="text/css" rel="stylesheet" href="../css/style.css">
+	<script src="../js/VerifyLogin.js"></script>
+	<script>VerifyLogin();</script>
 </head>
 
 <body>
@@ -18,7 +20,7 @@
 		<a id="topNav-news" href="news.html">News</a>
 		</div>
 	<div id="sideMenu" class="sideMenu">
-		<a class="button" href="../index.html" id="sideNav-myAccount">My Account</a>
+		<a class="button" href="myAccount.html" id="sideNav-myAccount">My Account</a>
 		<br>
 		<a class="button" href="viewRooms.html" id="sideNav-viewRooms">View Rooms</a>
 		<br>
@@ -48,13 +50,14 @@
 		<p id="viewRoomsP"></p>
 		<select id="roomSelectionDropdown" hidden="">
 		</select>
-		<input type="text" placeholder="Confirm your email." name="confirmEmail" id="confirmEmail" hidden="">
 		<button id="submitBookingButton" hidden="">Send Booking Request</button>
 	</div>
 	<div id="errorMessage"></div>
 </body>
 
+
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="../js/CheckRoomAvailableJS.js"></script>
+
 
 </html>
